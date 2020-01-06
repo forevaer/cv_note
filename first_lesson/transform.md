@@ -139,6 +139,6 @@ $$
 
 # 旋转
 
-![1578320998850](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1578320998850.png)
+![1578320998850](pic\1578320998850.png)
 
 旋转的话需要从线性上面才能更直观的体现
