@@ -9,9 +9,9 @@
 - 纯度：颜色中灰色含量的多少
 - 亮度：颜色中黑白占比的多少
 
-![image-20200107104147941](/Users/godme/cv-note/first_lesson/pic/deep.png)
+![image-20200107104147941](pic/deep.png)
 
-![image-20200107104205608](/Users/godme/cv-note/first_lesson/pic/light.png)
+![image-20200107104205608](pic/light.png)
 
 因为明亮和饱和的颜色都会对眼睛有明显的刺激，反正我是分不太清。
 
@@ -38,8 +38,9 @@
 同样，对于组合色：**`RGB`空间没有色相的度量**
 
 > 其他的颜色就是空间中的坐标点，三原色依据不同亮度进行的组合，总量共有
-> 
-> ![img](/Users/godme/cv-note/first_lesson/pic/11.png)
+> $$
+> total = 256 \times 256 \times 256 =1677216 = 2^{24} 
+> $$
 
 <hr>
 
@@ -92,7 +93,59 @@
 `YUV`中，除了`Y`是独立的亮度，`UV`两个一般都是联合使用的，仍然存在一定的交杂，色彩的控制并不单一。
 
 <hr>
-![img](/Users/godme/cv-note/first_lesson/pic/12.png)
+
+$$
+\begin{aligned}
+RGB \Rightarrow YUV&:\left\{
+\begin{matrix}
+Y = &0.299R + 0.587G + 0.144B \\
+U = &-0.147R - 0.289G + 0.436B \\
+V = &0.615R - 0.515G - 0.100 B
+\end{matrix}
+\right. \\ \\
+齐次矩阵:\left[
+\begin{matrix}
+Y \\ U \\ V
+\end{matrix}
+\right]
+ &= \left[
+\begin{matrix}
+0.299 & 0.587 & 0.144 \\
+-0.147 & -0.289 & 0.436 \\
+0.615 & 0.515 &-0.100
+\end{matrix}
+\right]
+\left[
+\begin{matrix}
+R \\ G \\ B
+\end{matrix}
+\right] \\ \\
+YUV => RGB &:\left\{
+\begin{matrix}
+R = &Y &+&  0 &+& 1.14V \\
+G = &Y &-& 0.39U &-& 0.58V \\
+B = &Y &+ &2.03U &+& 0
+\end{matrix}
+\right. \\ \\
+齐次矩阵 :\left[
+\begin{matrix}
+R \\ G \\ B
+\end{matrix}
+\right]
+ &= \left[
+\begin{matrix}
+1 & 0 & 1.14 \\
+1 & -0.39 & -0.58 \\
+1 & 2.03 &0
+\end{matrix}
+\right]\left[
+\begin{matrix}
+Y \\ U \\ V
+\end{matrix}
+\right]
+
+\end{aligned}
+$$
 
 > 如果指向调节明暗度，转换成`YUV`是最好的选择。
 
@@ -127,17 +180,55 @@
 | `V`       | 亮度   | $v \in [0, max]$，最大值取决于计算机存储 |
 
 <hr>
-![img](pic/13.png)
 
-<hr>
+$RGB \Rightarrow HSV$
+$$
+\begin{aligned}
+condition &= \left\{
+\begin{matrix}
+max = max(R, G, B) \\
+min = min(R, G, B)
+\end{matrix}
+\\
+\right. \\
+h &= \left\{
+\begin{matrix}
+0^\circ &if&   max = min \\
+60^ \circ \times \frac{g-b}{max - min} + 0^\circ & if&max = r \&  g \ge b \\
+60^ \circ \times \frac{g-b}{max - min} + 360^\circ & if&max = r \&  g \lt b \\
+60^ \circ \times \frac{b-r}{max - min} + 120^\circ & if&max = g  \\
+60^ \circ \times \frac{r-g}{max - min} + 240^\circ & if&max = b  \\
+\end{matrix}
+\right. \\ 
+s &= \left\{
+\begin{matrix}
+0 &if& max = 0 \\
+\frac{max - min}{max} = 1- \frac{min}{max} & otherwise
+\end{matrix}
+\right. \\
+v &= max
+\end{aligned}
+$$
 
-![img](pic/14.png)
-
-![img](pic/15.png)
-
-<hr>
-
-![img](pic/16.png)
-
+$HSV\Rightarrow RGB$
+$$
+\begin{aligned}
+h_i &\equiv {\Large \lfloor}\frac{h}{60}{\Large \rfloor} (\bmod 6) \\ 
+f &= \frac{h}{60} - h_i \\ 
+p &= v \times (1 - s) \\ 
+q &= v \times (1 - f \times s) \\ 
+t &= v \ times (1 -(1 - f) \times s)  \\ \\
+(R, G, B) &= \left\{
+\begin{matrix}
+(v, t, p) & if &h_i = 0 \\
+(q, v, p) & if &h_i = 1 \\
+(p, v, t) & if &h_i = 2 \\
+(p, q, v) & if &h_i = 3 \\
+(t, p, v) & if &h_i = 4 \\
+(v, p, q) & if &h_i = 5 \\
+\end{matrix}
+\right.
+\end{aligned}
+$$
 
 
