@@ -9,9 +9,9 @@
 - 纯度：颜色中灰色含量的多少
 - 亮度：颜色中黑白占比的多少
 
-![image-20200107104147941](/Users/godme/cv-note/first_lesson/pic/deep.png)
+![image-20200107104147941](pic/deep.png)
 
-![image-20200107104205608](/Users/godme/cv-note/first_lesson/pic/light.png)
+![image-20200107104205608](pic/light.png)
 
 因为明亮和饱和的颜色都会对眼睛有明显的刺激，反正我是分不太清。
 
@@ -39,7 +39,7 @@
 
 > 其他的颜色就是空间中的坐标点，三原色依据不同亮度进行的组合，总量共有
 > 
-> ![img](/Users/godme/cv-note/first_lesson/pic/11.png)
+> ![img](pic/11.png)
 
 <hr>
 
