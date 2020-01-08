@@ -161,7 +161,7 @@ y_1 = R\sin(a+b) = R\cos a \sin b + R \sin a \cos b
 得到 &:\left\{
 \begin{matrix}
 x_1 = x_0 \cos a - y_0 \sin a \\
-y_1 = y_0 \sin b + x_0 \sin a
+y_1 = y_0 \sin a + x_0 \cos a
 \end{matrix}
 \right.\\
 齐次&:\left[
@@ -171,7 +171,7 @@ x_1 \\ y_1
 \right] = 
 \left[
 \begin{matrix}
-\cos a & -\sin a \\ \sin b & \sin a
+\cos a & -\sin a \\ \sin a & \cos a
 \end{matrix}
 \right]\left[
 \begin{matrix}
@@ -185,7 +185,7 @@ x_1 \\ y_1 \\ m
 \right] = 
 \left[
 \begin{matrix}
-\cos a & -\sin a & \hat x\\ \sin b & \sin a & \hat y
+\cos a & -\sin a & \hat x\\ \sin a & \cos & \hat y
 \end{matrix}
 \right]\left[
 \begin{matrix}
