@@ -185,7 +185,7 @@ x_1 \\ y_1 \\ m
 \right] = 
 \left[
 \begin{matrix}
-\cos a & -\sin a & \hat x\\ \sin a & \cos & \hat y
+\cos a & -\sin a & \hat x\\ \sin a & \cos a & \hat y
 \end{matrix}
 \right]\left[
 \begin{matrix}
