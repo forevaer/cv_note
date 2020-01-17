@@ -11,5 +11,6 @@
 
 # 第二节
 
-- [hassis corner](2/homework_1.ipynb)
-- [sift](2/SIFT.ipynv)
+- [家庭作业](2/week2.ipynb)
+  - [hassis corner](2/homework_1.ipynb)
+  - [sift](2/SIFT.ipynv)
