@@ -12,5 +12,6 @@
 # 第二节
 
 - [家庭作业](2/week2.ipynb)
+  - [中值变换](2/mediaBlur.ipynb)
   - [hassis corner](2/homework_1.ipynb)
   - [sift](2/SIFT.ipynv)
