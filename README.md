@@ -15,3 +15,8 @@
   - [中值变换](2/mediaBlur.ipynb)
   - [hassis corner](2/homework_1.ipynb)
   - [sift](2/SIFT.ipynv)
+
+# 第三节
+
+- [作业及练习](3/week3.ipynb)
+
